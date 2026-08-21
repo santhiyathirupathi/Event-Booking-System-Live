@@ -1,0 +1,810 @@
+/* =========================================
+   EVENTBOOK OTP PAGE
+========================================= */
+
+.otp-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(99, 91, 255, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(124, 92, 246, 0.08),
+      transparent 30%
+    ),
+    #f7f8fc;
+
+  color: #181925;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.otp-navbar {
+  height: 74px;
+
+  padding: 0 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid #e8e8ef;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+}
+
+.otp-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 21px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  letter-spacing: -0.5px;
+}
+
+.otp-brand > span:not(.otp-brand-icon) {
+  color: #635bff;
+}
+
+.otp-brand-icon {
+  font-size: 24px;
+}
+
+.otp-back-btn {
+  border: 1px solid #e1e2ea;
+
+  background: white;
+
+  padding: 9px 15px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #4c4d5b;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.otp-back-btn:hover {
+  border-color: #c9c5ff;
+
+  color: #5e56e8;
+
+  background: #f7f6ff;
+
+  transform: translateX(-2px);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.otp-main {
+  width: min(1080px, 92%);
+
+  margin: auto;
+
+  padding: 55px 0;
+
+  display: grid;
+
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: 65px;
+
+  align-items: center;
+
+  flex: 1;
+}
+
+/* =========================================
+   LEFT
+========================================= */
+
+.otp-security-badge {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: #ecebff;
+
+  color: #5d56df;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  margin-bottom: 18px;
+}
+
+.otp-info h1 {
+  font-size: 43px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.7px;
+
+  margin-bottom: 17px;
+}
+
+.otp-info h1 span {
+  display: block;
+
+  color: #6259ef;
+}
+
+.otp-description {
+  color: #777987;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  max-width: 450px;
+
+  margin-bottom: 27px;
+}
+
+/* =========================================
+   PHONE CARD
+========================================= */
+
+.phone-display-card {
+  max-width: 410px;
+
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  border-radius: 14px;
+
+  background: white;
+
+  border: 1px solid #e7e7ef;
+
+  box-shadow:
+    0 10px 30px rgba(26, 28, 55, 0.06);
+}
+
+.phone-display-icon {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eeedff;
+
+  color: #6259ef;
+
+  border-radius: 11px;
+}
+
+.phone-display-card div:last-child {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.phone-display-card span {
+  font-size: 11px;
+
+  color: #999aa7;
+}
+
+.phone-display-card strong {
+  font-size: 14px;
+
+  color: #30313e;
+}
+
+/* =========================================
+   DEMO OTP
+========================================= */
+
+.demo-otp-box {
+  max-width: 410px;
+
+  margin-top: 14px;
+
+  padding: 13px 15px;
+
+  border-radius: 14px;
+
+  background: #fff9e9;
+
+  border: 1px solid #f2dfad;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.demo-otp-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #fff0c7;
+
+  font-size: 17px;
+}
+
+.demo-otp-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 2px;
+
+  flex: 1;
+}
+
+.demo-otp-content span {
+  font-size: 10px;
+
+  color: #97782e;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.6px;
+}
+
+.demo-otp-content strong {
+  font-size: 18px;
+
+  color: #574617;
+
+  letter-spacing: 3px;
+}
+
+.demo-otp-box small {
+  font-size: 9px;
+
+  color: #a38b53;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   BOOKING SUMMARY
+========================================= */
+
+.otp-booking-summary {
+  max-width: 410px;
+
+  margin-top: 14px;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #faf9ff
+    );
+
+  border: 1px solid #e5e4f5;
+
+  display: flex;
+
+  gap: 13px;
+}
+
+.summary-icon {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 10px;
+
+  background: #f0efff;
+
+  color: #6259ef;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.summary-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.summary-content span {
+  color: #9a9ba7;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+
+  font-weight: 800;
+}
+
+.summary-content strong {
+  color: #30313d;
+
+  font-size: 13px;
+}
+
+.summary-content small {
+  color: #7d7e8c;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   OTP CARD
+========================================= */
+
+.otp-card {
+  background: white;
+
+  border: 1px solid #e5e5ed;
+
+  border-radius: 23px;
+
+  padding: 34px;
+
+  box-shadow:
+    0 20px 55px rgba(27, 29, 59, 0.1);
+}
+
+.otp-card-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  margin-bottom: 32px;
+}
+
+.otp-lock {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 13px;
+
+  background: #635bff;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 9px 20px rgba(99, 91, 255, 0.25);
+}
+
+.otp-card-top h2 {
+  font-size: 22px;
+
+  margin-bottom: 4px;
+}
+
+.otp-card-top p {
+  font-size: 12px;
+
+  color: #9697a4;
+}
+
+/* =========================================
+   OTP INPUTS
+========================================= */
+
+.otp-inputs {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 15px;
+}
+
+.otp-inputs input {
+  width: 52px;
+  height: 59px;
+
+  border-radius: 12px;
+
+  border: 1px solid #dadbe5;
+
+  background: #fafafd;
+
+  outline: none;
+
+  text-align: center;
+
+  font-size: 22px;
+
+  font-weight: 800;
+
+  color: #292a38;
+
+  transition: 0.2s;
+}
+
+.otp-inputs input:focus {
+  border-color: #665df0;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(99, 91, 255, 0.09);
+}
+
+.otp-inputs input.filled {
+  border-color: #7169ee;
+
+  background: #f7f6ff;
+
+  color: #5c54df;
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.otp-error {
+  text-align: center;
+
+  padding: 9px;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  color: #d34d4d;
+
+  font-size: 12px;
+
+  margin-bottom: 14px;
+}
+
+/* =========================================
+   TIMER
+========================================= */
+
+.otp-timer {
+  text-align: center;
+
+  margin: 20px 0 22px;
+
+  font-size: 12px;
+
+  color: #999aa6;
+}
+
+.otp-timer strong {
+  color: #6259ef;
+
+  margin-left: 5px;
+}
+
+.otp-timer button {
+  border: none;
+
+  background: transparent;
+
+  color: #6259ef;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  cursor: pointer;
+
+  margin-left: 5px;
+}
+
+.otp-timer button:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   VERIFY BUTTON
+========================================= */
+
+.verify-otp-btn {
+  width: 100%;
+
+  height: 53px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6259ef,
+      #7b70f7
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(99, 91, 255, 0.25);
+
+  transition: 0.25s;
+}
+
+.verify-otp-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 30px rgba(99, 91, 255, 0.32);
+}
+
+.verify-otp-btn:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+}
+
+.otp-arrow {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   SPINNER
+========================================= */
+
+.otp-spinner {
+  width: 17px;
+  height: 17px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: otpSpin 0.7s linear infinite;
+}
+
+@keyframes otpSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================
+   SECURITY
+========================================= */
+
+.otp-secure {
+  margin-top: 19px;
+
+  padding: 13px;
+
+  border-radius: 11px;
+
+  background: #f7faf8;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #3e9b60;
+}
+
+.otp-secure > svg {
+  flex-shrink: 0;
+}
+
+.otp-secure div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.otp-secure strong {
+  font-size: 10px;
+
+  color: #62656d;
+}
+
+.otp-secure span {
+  font-size: 9px;
+
+  color: #999ca4;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.otp-footer {
+  text-align: center;
+
+  padding: 18px;
+
+  border-top: 1px solid #e9e9ef;
+
+  color: #a0a1ad;
+
+  font-size: 10px;
+
+  background: white;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+  .otp-main {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    max-width: 620px;
+  }
+
+  .otp-info {
+    text-align: center;
+  }
+
+  .otp-security-badge,
+  .phone-display-card,
+  .demo-otp-box,
+  .otp-booking-summary {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .otp-info h1 span {
+    display: inline;
+
+    margin-left: 7px;
+  }
+}
+
+@media (max-width: 520px) {
+  .otp-navbar {
+    padding: 0 4%;
+  }
+
+  .otp-brand {
+    font-size: 18px;
+  }
+
+  .otp-brand-icon {
+    font-size: 21px;
+  }
+
+  .otp-back-btn {
+    padding: 8px 11px;
+
+    font-size: 11px;
+  }
+
+  .otp-main {
+    width: 94%;
+
+    padding: 35px 0;
+  }
+
+  .otp-info h1 {
+    font-size: 32px;
+  }
+
+  .otp-description {
+    font-size: 13px;
+  }
+
+  .otp-card {
+    padding: 22px;
+
+    border-radius: 18px;
+  }
+
+  .otp-inputs {
+    gap: 6px;
+  }
+
+  .otp-inputs input {
+    width: 43px;
+    height: 52px;
+
+    font-size: 19px;
+  }
+
+  .demo-otp-box {
+    text-align: left;
+  }
+
+  .demo-otp-box small {
+    display: none;
+  }
+}
