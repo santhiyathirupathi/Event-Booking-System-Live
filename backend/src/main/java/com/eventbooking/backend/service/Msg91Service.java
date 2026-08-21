@@ -1,5 +1,6 @@
 package com.eventbooking.backend.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,12 @@ public class Msg91Service {
 
     private final RestClient restClient;
 
+    @Value("${msg91.authkey}")
+    private String authKey;
+
+    @Value("${msg91.template-id}")
+    private String templateId;
+
     public Msg91Service() {
         this.restClient = RestClient.builder()
                 .baseUrl("https://control.msg91.com")
@@ -18,18 +25,15 @@ public class Msg91Service {
 
     public String sendOtp(String phone) {
 
-        String authKey = System.getenv("MSG91_AUTHKEY");
-        String templateId = System.getenv("MSG91_TEMPLATE_ID");
-
         if (authKey == null || authKey.isBlank()) {
             throw new RuntimeException(
-                    "MSG91_AUTHKEY environment variable is not configured"
+                    "MSG91_AUTHKEY is not configured"
             );
         }
 
         if (templateId == null || templateId.isBlank()) {
             throw new RuntimeException(
-                    "MSG91_TEMPLATE_ID environment variable is not configured"
+                    "MSG91_TEMPLATE_ID is not configured"
             );
         }
 
@@ -51,16 +55,11 @@ public class Msg91Service {
         return response;
     }
 
-    public String verifyOtp(
-            String phone,
-            String otp
-    ) {
-
-        String authKey = System.getenv("MSG91_AUTHKEY");
+    public String verifyOtp(String phone, String otp) {
 
         if (authKey == null || authKey.isBlank()) {
             throw new RuntimeException(
-                    "MSG91_AUTHKEY environment variable is not configured"
+                    "MSG91_AUTHKEY is not configured"
             );
         }
 
